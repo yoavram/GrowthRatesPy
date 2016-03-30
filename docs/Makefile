@@ -190,3 +190,19 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+# http://blog.nikhilism.com/2012/08/automatic-github-pages-generation-from.html
+gh-pages:
+	cd ..
+	git checkout gh-pages
+	rm -rf _sources _static docs growthratespy
+	git checkout master docs growthratespy
+	git reset HEAD
+	cd docs & make html & cd ..
+	mv -fv docs/_build/html/* ./
+	rm -rf docs growthratespy
+	git add -A
+	git commit -m "Generated gh-pages"
+	git push origin gh-pages
+	git checkout master
+	cd docs
