@@ -1,0 +1,8 @@
+include versioneer.py
+include GrowthRatesPy/_version.py
+include setup.py setup.cfg README.md LICENCE.txt MANIFEST.in PKG-INFO CHANGELOG.md requirements.txt
+exclude *.pyc .* Makefile
+recursive-include growthratespy *.py
+include growthratespy/data/Tecan_210115.tsv
+include growthratespy/data/Tecan_210115.results
+include growthratespy/data/Tecan_210115.summary
