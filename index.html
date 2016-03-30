@@ -1,1 +1,320 @@
-"hello world" 
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GrowthRatesPy: Python API for GrotwhRates &mdash; GrowthRatesPy 0+untagged.1.ga312697 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="GrowthRatesPy 0+untagged.1.ga312697 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> GrowthRatesPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0+untagged.1.ga312697
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">GrowthRatesPy: Python API for GrotwhRates</a><ul>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#support">Support</a></li>
+<li><a class="reference internal" href="#citation">Citation</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">GrowthRatesPy</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>GrowthRatesPy: Python API for GrotwhRates</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/yoavram/GrowthRatesPy/blob/master/index.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="growthratespy-python-api-for-grotwhrates">
+<h1>GrowthRatesPy: Python API for GrotwhRates<a class="headerlink" href="#growthratespy-python-api-for-grotwhrates" title="Permalink to this headline">¶</a></h1>
+<p><strong>Author</strong>: <a class="reference external" href="http://www.yoavram.com">Yoav Ram</a></p>
+<p><a class="reference external" href="https://sourceforge.net/projects/growthrates/">GrowthRates</a> is a program for analysis of growth curve data.</p>
+<p><strong>GrowthRatesPy</strong> provides a Python API for using <strong>GrowthRates</strong> from within Python code.</p>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>To install the latest stable version of <strong>GrowthRatesPy</strong>, use <cite>pip</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yoavram</span><span class="o">/</span><span class="n">GrowthRatesPy</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>You will need to install <a class="reference external" href="http://pandas.pydata.org/">pandas</a>, which requires <cite>numpy</cite> etc.
+This is most easily done on Windows using <a class="reference external" href="https://store.continuum.io/">Anaconda</a> .</p>
+<p>You will also need to download <a class="reference external" href="https://sourceforge.net/projects/growthrates/">GrowthRates</a>
+and unzip it to either <cite>C:\Program Files</cite>, <cite>C:\Program Files (x86)</cite> or to anywhere else of your choice,
+provided that you add it to your <cite>PATH</cite>.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>To use <strong>GrowthRatesPy</strong> you&#8217;ll need a TSV (tab-separated values) file in the format specified in <strong>GrowthRates</strong> documentation.
+You can use the file supplied with the package, called <cite>Tecan_210115.tsv</cite>, which will be located in your Python package library (search is your friend).</p>
+<p>Then call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">growthratespy</span> <span class="kn">import</span> <span class="n">growthrates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">growthrates</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s1">&#39;Tecan_210115.tsv&#39;</span><span class="p">,</span> <span class="n">well</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <cite>well</cite> is the number of the well that has the blank sample.</p>
+<p>The result, <cite>summary</cite>, is a table of type <cite>pandas.DataFrame</cite> that contains the results of the analysis:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Well</td>
+<td>Rate</td>
+<td>R</td>
+<td>Max OD</td>
+<td>lag time (minutes)</td>
+</tr>
+<tr class="row-even"><td>A1</td>
+<td>0.02926</td>
+<td>0.99487</td>
+<td>0.515</td>
+<td>1.1</td>
+</tr>
+<tr class="row-odd"><td>A2</td>
+<td>0.13469</td>
+<td>0.92693</td>
+<td>0.525</td>
+<td>58.0</td>
+</tr>
+<tr class="row-even"><td>A3</td>
+<td>0.01350</td>
+<td>0.89919</td>
+<td>0.529</td>
+<td>36.8</td>
+</tr>
+<tr class="row-odd"><td>A4</td>
+<td>0.03109</td>
+<td>0.99670</td>
+<td>0.457</td>
+<td>42.3</td>
+</tr>
+<tr class="row-even"><td>A5</td>
+<td>0.01164</td>
+<td>0.99983</td>
+<td>0.439</td>
+<td>61.6</td>
+</tr>
+<tr class="row-odd"><td>A6</td>
+<td>0.01273</td>
+<td>0.99985</td>
+<td>0.520</td>
+<td>54.9</td>
+</tr>
+<tr class="row-even"><td>A7</td>
+<td>0.01613</td>
+<td>0.99987</td>
+<td>0.529</td>
+<td>34.4</td>
+</tr>
+<tr class="row-odd"><td>A8</td>
+<td>0.01485</td>
+<td>0.99980</td>
+<td>0.509</td>
+<td>31.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<p>Please report bugs and file feature requests by <a class="reference external" href="https://github.com/yoavram/GrowthRatesPy/issues">opening an issue on github</a>.</p>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p>If you use <strong>GrowthRates</strong>, please cite:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Hall, B. G., H. Acar and M. Barlow. 2014 <em>Growth Rates Made Easy</em>. Mol. Biol. Evol. 31:
+232-238 doi:10.1093/molbev/mst197</p>
+</div>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p><strong>GrowthRatesPy</strong> is not related to <strong>GrowthRates</strong> and is independently developed.</p>
+<p><strong>GrowthRatesPy</strong> source code is licensed under the terms of the <a class="reference external" href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p><strong>GrowthRatesPy</strong> documentation and other content is licensed under the terms of the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0) license</a>.</p>
+<p><strong>GrowthRates</strong> is distributed under a separate license, please see the PDF attached to the program.</p>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Yoav Ram.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0+untagged.1.ga312697',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
