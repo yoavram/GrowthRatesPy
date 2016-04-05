@@ -1,3 +1,13 @@
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import int
+from builtins import open
+from builtins import str
+from future import standard_library
+standard_library.install_aliases()
+from builtins import object
 
 # This file helps to compute a version number in source trees obtained from
 # git-archive tarball (such as those provided by githubs download-from-tag
@@ -26,7 +36,7 @@ def get_keywords():
     return keywords
 
 
-class VersioneerConfig:
+class VersioneerConfig(object):
     pass
 
 
