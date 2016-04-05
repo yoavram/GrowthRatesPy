@@ -17,7 +17,7 @@ setup(
     license='MIT',
     author='Yoav Ram',
     author_email='yoav@yoavram.com',
-    description='Python API to run GrowthRates (Hall et al. 2013)',
+    description='Python API to run GrowthRates (Hall et al. 2014)',
     cmdclass=versioneer.get_cmdclass(),
     packages=find_packages(),
     install_requires=[
