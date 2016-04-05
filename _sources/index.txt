@@ -9,7 +9,9 @@ GrowthRatesPy: Python API for GrotwhRates
 
 **Author**: `Yoav Ram <http://www.yoavram.com>`_
 
-`GrowthRates <https://sourceforge.net/projects/growthrates/>`_ is a program for analysis of growth curve data.
+`GrowthRates <https://sourceforge.net/projects/growthrates/>`_ is a program for analysis of growth curve data:
+"GrowthRates uses the output from microbial growth rate experiments that are done using microtiter plate readers
+to caculate the best-fit growth rates, the lag times and the maximum OD".
 
 **GrowthRatesPy** provides a Python API for using **GrowthRates** from within Python code.
 
@@ -20,13 +22,14 @@ To install the latest stable version of **GrowthRatesPy**, use `pip`:
 
 >>> pip install git+https://github.com/yoavram/GrowthRatesPy.git
 
-You will need to install `pandas <http://pandas.pydata.org/>`_, which requires `numpy` etc.
+You will need to install `pandas <http://pandas.pydata.org/>`_, which requires NumPy etc.
 This is most easily done on Windows using `Anaconda <https://store.continuum.io/>`_ .
 
 You will also need to download `GrowthRates <https://sourceforge.net/projects/growthrates/>`_
 and unzip it to either `C:\\Program Files`, `C:\\Program Files (x86)` or to anywhere else of your choice,
 provided that you add it to your `PATH`.
 
+**GrowthRatesPy** supports both Python 2 and 3 and was tested with Python 2.7 and 3.4.
 
 Usage
 -----

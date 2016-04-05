@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: GrowthRatesPy
+Version: 0.0.2
+Summary: Python API to run GrowthRates (Hall et al. 2014)
+Home-page: https://growthratespy.yoavram.com
+Author: Yoav Ram
+Author-email: yoav@yoavram.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
