@@ -10,6 +10,13 @@
 from setuptools import setup, find_packages
 import versioneer
 
+install_requires = []
+try:
+    from functools import lru_cache
+except ImportError:
+    install_requires = ['functools32'] # adds lru_cache to python<3.2
+
+
 setup(
     name='GrowthRatesPy',
     version=versioneer.get_version(),
@@ -22,7 +29,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'pandas'
-    ],
+    ] + install_requires,
     extras_require={
         'tests': [
             'nose',

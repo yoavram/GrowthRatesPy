@@ -18,11 +18,14 @@ standard_library.install_aliases()
 import subprocess
 import os
 import sys
-import functools
+try:
+    from functools import lru_cache
+except ImportError:
+    from functools32 import lru_cache
 import pandas as pd
 
 
-@functools.lru_cache(maxsize=1)
+@lru_cache(maxsize=1)
 def find_growthrates():
     try:
         from shutil import which

@@ -35,7 +35,9 @@ class Test(TestCase):
         self.assertEquals(len([line for line in data if 'Well' in line]), 96)
 
     def test_growthrates(self):
-        filename = shutil.copy(self.filename_tsv, self.folder)
+        shutil.copy(self.filename_tsv, self.folder)
+        just_filename = os.path.split(self.filename_tsv)[-1]
+        filename = os.path.join(self.folder, just_filename)
         growthratespy.growthrates(filename, 96)
         base_filename = os.path.splitext(filename)[0]
         self.assertTrue(os.path.exists(base_filename + '.summary'))
