@@ -143,8 +143,13 @@ def read_summary(summary_filename):
     pandas.DataFrame
         Table of GrowthRates summary.
     """
-    with open(summary_filename) as f:
-        return pd.read_csv(f, sep='\t', skipinitialspace=True, skiprows=1)
+    return pd.read_csv(
+        summary_filename,
+        sep='\t',
+        skipinitialspace=True,
+        skiprows=1,
+        na_values='----'
+    )
 
 
 if __name__ == '__main__':
