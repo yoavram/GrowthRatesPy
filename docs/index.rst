@@ -91,5 +91,6 @@ License
 API
 ---
 
-* :ref:`genindex`
-* :ref:`modindex`
+.. automodule:: growthratespy.core
+    :members:
+
