@@ -85,7 +85,7 @@ def growthrates(infile=None, data=None, blank_well=None):
 
     if data is not None:
         infile = tempfile.mktemp(suffix='.tsv')
-        data.to_csv(infile, sep='\t')
+        data.to_csv(infile, sep='\t', index=False)
 
     if not os.path.exists(infile):
         raise ValueError("Path to input file doesn't exist:", infile)
