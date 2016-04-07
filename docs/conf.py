@@ -38,7 +38,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'numpydoc', # https://pypi.python.org/pypi/numpydoc
-    'edit_on_github', # https://gist.github.com/MantasVaitkunas/7c16de233812adcb7028#file-edit_on_github-py-L38-L43
+    # 'edit_on_github', # https://gist.github.com/MantasVaitkunas/7c16de233812adcb7028#file-edit_on_github-py-L38-L43
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -307,5 +307,5 @@ intersphinx_mapping = {
 }
 
 # Edit on GitHub - https://gist.github.com/MantasVaitkunas/7c16de233812adcb7028#file-edit_on_github-py-L38-L43
-edit_on_github_project = 'yoavram/GrowthRatesPy'
-edit_on_github_branch = 'master'
+# edit_on_github_project = 'yoavram/GrowthRatesPy'
+# edit_on_github_branch = 'master'
