@@ -40,6 +40,20 @@ You can use the file supplied with the package, called `Tecan_210115.tsv`, which
 Then call:
 
 >>> from growthratespy import growthrates
+>>> summary = growthrates(infile='Tecan_210115.tsv', blank_well=96)
+
+Here,
+
+Then call:
+
+>>> from growthratespy import growthrates
+>>> summary = growthrates(infile='Tecan_210115.tsv', blank_well=96)
+
+Here,
+
+Then call:
+
+>>> from growthratespy import growthrates
 >>> summary = growthrates(infile='Tecan_210115.tsv', well=96)
 
 Here, `well` is the number of the well that has the blank sample.
