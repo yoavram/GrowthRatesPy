@@ -18,10 +18,12 @@ standard_library.install_aliases()
 import subprocess
 import os
 import sys
+import tempfile
 try:
     from functools import lru_cache
 except ImportError:
     from functools32 import lru_cache
+
 import pandas as pd
 
 
@@ -61,13 +63,15 @@ def find_growthrates():
     return path
 
 
-def growthrates(infile, blank_well=None):
+def growthrates(infile=None, data=None, blank_well=None):
     """Runs `GrowthRates` on input file with blank given well.
 
-    Arguments
-    ---------
+    Parameters
+    ----------
     infile : str
         path to data file.
+    data : pd.DataFrame
+        Data to used instead of `infile`.
     blank_well : int
         well number for background OD.
 
@@ -78,8 +82,14 @@ def growthrates(infile, blank_well=None):
     """
     if not isinstance(blank_well, int) or blank_well <= 0 :
         raise ValueError("blank_well must be a non-negative integer")
+
+    if data is not None:
+        infile = tempfile.mktemp(suffix='.tsv')
+        data.to_csv(infile, sep='\t')
+
     if not os.path.exists(infile):
         raise ValueError("Path to input file doesn't exist:", infile)
+
     gr_path = find_growthrates()
 
     arguments = [gr_path, '-i', infile]
@@ -103,8 +113,8 @@ def _execute_growthrates(arguments):
 def read_results(results_filename):
     """Loads a GrowthRates results file.
 
-    Arguments
-    ---------
+    Parameters
+    ----------
     results_filename : str
         path to results file.
 
@@ -123,8 +133,8 @@ def read_results(results_filename):
 def read_summary(summary_filename):
     """Loads a GrowthRates summary file.
 
-    Arguments
-    ---------
+    Parameters
+    ----------
     summary_filename : str
         path to summary file.
 
