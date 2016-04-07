@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GrowthRatesPy: Python API for GrotwhRates &mdash; GrowthRatesPy 0.0.1 documentation</title>
+  <title>GrowthRatesPy: Python API for GrotwhRates &mdash; GrowthRatesPy 0+untagged.4.g8a548d4.dirty documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="GrowthRatesPy 0.0.1 documentation" href="#"/> 
+    <link rel="top" title="GrowthRatesPy 0+untagged.4.g8a548d4.dirty documentation" href="#"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.0.1
+                0+untagged.4.g8a548d4.dirty
               </div>
             
           
@@ -87,7 +87,7 @@
 <li><a class="reference internal" href="#support">Support</a></li>
 <li><a class="reference internal" href="#citation">Citation</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
-<li><a class="reference internal" href="#api">API</a></li>
+<li><a class="reference internal" href="#module-growthratespy.core">API</a></li>
 </ul>
 </li>
 </ul>
@@ -124,7 +124,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/yoavram/GrowthRatesPy/blob/master/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -156,9 +156,10 @@ provided that you add it to your <cite>PATH</cite>.</p>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>To use <strong>GrowthRatesPy</strong> you&#8217;ll need a TSV (tab-separated values) file in the format specified in <strong>GrowthRates</strong> documentation.
-You can use the file supplied with the package, called <cite>Tecan_210115.tsv</cite>, which will be located in your Python package library (search is your friend).</p>
-<p>Then call:</p>
+<p>To use <strong>GrowthRatesPy</strong> you&#8217;ll need a TSV (tab-separated values) file in the format specified in <strong>GrowthRates</strong> documentation:
+one time column, in minutes, called <cite>Min</cite>, and one or more columns of OD data (usually one column per well).</p>
+<p>You can use the file supplied with the package, called <cite>Tecan_210115.tsv</cite>,
+which will be located in your Python package library (search is your friend).</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">growthratespy</span> <span class="kn">import</span> <span class="n">growthrates</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">growthrates</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s1">&#39;Tecan_210115.tsv&#39;</span><span class="p">,</span> <span class="n">well</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
 </pre></div>
@@ -230,6 +231,11 @@ You can use the file supplied with the package, called <cite>Tecan_210115.tsv</c
 </tr>
 </tbody>
 </table>
+<p>If the data is in a <cite>pandas.DataFrame</cite> called <cite>df</cite> rather than a file,
+you can give this dataframe directly to the <cite>growthrates</cite> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">growthrates</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">well</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="support">
 <h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
@@ -251,12 +257,108 @@ You can use the file supplied with the package, called <cite>Tecan_210115.tsv</c
 <p><strong>GrowthRatesPy</strong> documentation and other content is licensed under the terms of the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0) license</a>.</p>
 <p><strong>GrowthRates</strong> is distributed under a separate license, please see the PDF attached to the program.</p>
 </div>
-<div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-</ul>
+<div class="section" id="module-growthratespy.core">
+<span id="api"></span><h2>API<a class="headerlink" href="#module-growthratespy.core" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="growthratespy.core.find_growthrates">
+<code class="descclassname">growthratespy.core.</code><code class="descname">find_growthrates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/growthratespy/core.html#find_growthrates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#growthratespy.core.find_growthrates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to find <cite>GrowthRates</cite>.</p>
+<p>Tries to use <cite>shutil.which</cite> or  <cite>distutils.spawn.find_executable</cite>,
+otherwise tries to find it in <cite>Program Files</cite> folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">str</p>
+<blockquote class="last">
+<div><p>Path to <cite>GrowthRates</cite>; raises <cite>ValueError</cite> if couldn&#8217;t find.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="growthratespy.core.growthrates">
+<code class="descclassname">growthratespy.core.</code><code class="descname">growthrates</code><span class="sig-paren">(</span><em>infile=None</em>, <em>data=None</em>, <em>blank_well=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/growthratespy/core.html#growthrates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#growthratespy.core.growthrates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs <cite>GrowthRates</cite> on input file with blank given well.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>infile</strong> : str</p>
+<blockquote>
+<div><p>path to data file.</p>
+</div></blockquote>
+<p><strong>data</strong> : pd.DataFrame</p>
+<blockquote>
+<div><p>Data to used instead of <cite>infile</cite>.</p>
+</div></blockquote>
+<p><strong>blank_well</strong> : int</p>
+<blockquote>
+<div><p>well number for background OD.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>Table of GrowthRates results.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="growthratespy.core.read_results">
+<code class="descclassname">growthratespy.core.</code><code class="descname">read_results</code><span class="sig-paren">(</span><em>results_filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/growthratespy/core.html#read_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#growthratespy.core.read_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a GrowthRates results file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>results_filename</strong> : str</p>
+<blockquote>
+<div><p>path to results file.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>Table of GrowthRates results.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="growthratespy.core.read_summary">
+<code class="descclassname">growthratespy.core.</code><code class="descname">read_summary</code><span class="sig-paren">(</span><em>summary_filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/growthratespy/core.html#read_summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#growthratespy.core.read_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a GrowthRates summary file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>summary_filename</strong> : str</p>
+<blockquote>
+<div><p>path to summary file.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>Table of GrowthRates summary.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 
@@ -292,7 +394,7 @@ You can use the file supplied with the package, called <cite>Tecan_210115.tsv</c
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.1',
+            VERSION:'0+untagged.4.g8a548d4.dirty',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -34,10 +34,11 @@ provided that you add it to your `PATH`.
 Usage
 -----
 
-To use **GrowthRatesPy** you'll need a TSV (tab-separated values) file in the format specified in **GrowthRates** documentation.
-You can use the file supplied with the package, called `Tecan_210115.tsv`, which will be located in your Python package library (search is your friend).
+To use **GrowthRatesPy** you'll need a TSV (tab-separated values) file in the format specified in **GrowthRates** documentation:
+one time column, in minutes, called `Min`, and one or more columns of OD data (usually one column per well).
 
-Then call:
+You can use the file supplied with the package, called `Tecan_210115.tsv`,
+which will be located in your Python package library (search is your friend).
 
 >>> from growthratespy import growthrates
 >>> summary = growthrates(infile='Tecan_210115.tsv', well=96)
@@ -48,6 +49,11 @@ The result, `summary`, is a table of type `pandas.DataFrame` that contains the r
 
 .. csv-table::
   :file: _static/Tecan_210115.summary.head8.csv
+
+If the data is in a `pandas.DataFrame` called `df` rather than a file,
+you can give this dataframe directly to the `growthrates` function:
+
+>>> summary = growthrates(data=df, well=96)
 
 Support
 -------
@@ -77,5 +83,6 @@ License
 API
 ---
 
-* :ref:`genindex`
-* :ref:`modindex`
+.. automodule:: growthratespy.core
+    :members:
+
