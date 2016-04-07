@@ -28,12 +28,14 @@ setup(
     cmdclass=versioneer.get_cmdclass(),
     packages=find_packages(),
     install_requires=[
-        'pandas'
+        'pandas',
+        'future'
     ] + install_requires,
     extras_require={
         'tests': [
             'nose',
-            'coverage',
+            'tox'
+            # 'coverage',
         ]
     },
     include_package_data=True,
